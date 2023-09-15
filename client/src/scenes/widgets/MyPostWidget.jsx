@@ -46,7 +46,7 @@ const MyPostWidget = ({ picturePath }) => {
       formData.append("picturePath", image.name);
     }
 
-    const response = await fetch(`https://chirphub.onrender.com/posts`, {
+    const response = await fetch(`http://localhost:3001/posts`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
@@ -158,13 +158,9 @@ const MyPostWidget = ({ picturePath }) => {
           disabled={!post}
           onClick={handlePost}
           sx={{
-            color: mediumMain,
+            color: palette.background.alt,
             backgroundColor: palette.primary.main,
             borderRadius: "3rem",
-fontSize: "14px",
-            fontWeight: "800",
-            boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",  // Add a subtle shadow
-
           }}
         >
           POST
