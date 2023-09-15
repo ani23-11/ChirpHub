@@ -42,7 +42,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
         <UserImage image={userPicturePath} size="55px" />
         <Box
           onClick={() => {
-            navigate(`/profile/${friendId}`);
+            navigate(`https://chirphub.onrender.com/profile/${friendId}`);
             navigate(0);
           }}
         >
