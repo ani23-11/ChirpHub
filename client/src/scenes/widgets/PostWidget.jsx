@@ -131,23 +131,23 @@ const PostWidget = ({
         )}
 
       </Typography>
-      {picturePath && picturePath.includes(".com") ? (
-        <img
-          width="100%"
-          height="280px"
-          alt="post"
-          style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-          src={`${picturePath}`}
-        />
-      ) : (
-        <img
-          width="100%"
-          height="280px"
-          alt="post"
-          style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-          src={`https://chirphub.onrender.com/assets/${picturePath}`}
-        />
-      )}
+      {picturePath && (picturePath.includes(".com") ? (
+  <img
+    width="100%"
+    height="280px"
+    alt="post"
+    style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
+    src={`${picturePath}`}
+  />
+) : (
+  <img
+    width="100%"
+    height="280px"
+    alt="post"
+    style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
+    src={`https://chirphub.onrender.com/assets/${picturePath}`}
+  />
+))}
 
       <FlexBetween mt="0.25rem">
         <FlexBetween gap="1rem">
