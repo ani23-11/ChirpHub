@@ -161,7 +161,7 @@ const MyPostWidget = ({ picturePath }) => {
             color: mediumMain,
             backgroundColor: palette.primary.main,
             borderRadius: "3rem",
-            fontSize: "14px",
+fontSize: "14px",
             fontWeight: "800",
             boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",  // Add a subtle shadow
 

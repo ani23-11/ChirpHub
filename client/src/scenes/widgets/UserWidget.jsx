@@ -1,6 +1,6 @@
 import {
   ManageAccountsOutlined,
-  LocationOnOutlined,
+    LocationOnOutlined,
   WorkOutlineOutlined,
 } from "@mui/icons-material";
 import { Box, Typography, Divider, useTheme } from "@mui/material";
@@ -111,7 +111,7 @@ const UserWidget = ({ userId, picturePath }) => {
 
       <Divider />
 
-
+      
     </WidgetWrapper>
   );
 };
