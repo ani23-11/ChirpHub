@@ -1,14 +1,15 @@
-import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { setFriends } from "state";
-import FlexBetween from "./FlexBetween";
-import UserImage from "./UserImage";
+import React from 'react';
+import { PersonAddOutlined, PersonRemoveOutlined } from '@mui/icons-material';
+import { Box, IconButton, Typography, useTheme } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setFriends } from 'state';
+import FlexBetween from './FlexBetween';
+import UserImage from './UserImage';
 
 const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Use useNavigate for navigation
   const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
@@ -21,14 +22,15 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 
   const isFriend = friends.find((friend) => friend._id === friendId);
   const isSelf = friendId === _id;
+
   const patchFriend = async () => {
     const response = await fetch(
       `https://chirphub.onrender.com/users/${_id}/${friendId}`,
       {
-        method: "PATCH",
+        method: 'PATCH',
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       }
     );
@@ -42,21 +44,18 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
         <UserImage image={userPicturePath} size="55px" />
         <Box
           onClick={() => {
-            navigate(`/profile/${friendId}`);
-            navigate(0);
+            // Construct the profile URL
+            const profileUrl = `/profile/${friendId}`;
+            navigate(profileUrl); // Navigate using useNavigate
+          }}
+          sx={{
+            '&:hover': {
+              color: palette.primary.light,
+              cursor: 'pointer',
+            },
           }}
         >
-          <Typography
-            color={main}
-            variant="h5"
-            fontWeight="500"
-            sx={{
-              "&:hover": {
-                color: palette.primary.light,
-                cursor: "pointer",
-              },
-            }}
-          >
+          <Typography color={main} variant="h5" fontWeight="500">
             {name}
           </Typography>
           <Typography color={medium} fontSize="0.75rem">
@@ -67,7 +66,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
       {!isSelf && (
         <IconButton
           onClick={() => patchFriend()}
-          sx={{ backgroundColor: primaryLight, p: "0.6rem" }}
+          sx={{ backgroundColor: primaryLight, p: '0.6rem' }}
         >
           {isFriend ? (
             <PersonRemoveOutlined sx={{ color: primaryDark }} />

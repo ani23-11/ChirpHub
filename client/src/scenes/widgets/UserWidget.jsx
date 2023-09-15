@@ -22,7 +22,7 @@ const UserWidget = ({ userId, picturePath }) => {
   const token = useSelector((state) => state.token);
 
   const getUser = async () => {
-    const response = await fetch(`/users/${userId}`, {
+    const response = await fetch(`https://chirphub.onrender.com/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -33,7 +33,7 @@ const UserWidget = ({ userId, picturePath }) => {
   const updateUser = async () => {
     try {
       const response = await axios.patch(
-        `/users/${userId}`,
+        `https://chirphub.onrender.com/users/${userId}`,
         { twitter, linkedIn },
         {
           headers: {
