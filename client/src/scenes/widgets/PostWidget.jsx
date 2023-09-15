@@ -51,7 +51,7 @@ const PostWidget = ({
     })
       .then(response => {
         setLoadComments(response.data.comments);
-        console.log('50', loadcomments)
+        // console.log('50', loadcomments)
       })
       .catch(error => {
         console.error(error);
@@ -105,7 +105,7 @@ const PostWidget = ({
     navigator.clipboard.writeText(postUrl);
   };
 
-  console.log('104',loadcomments)
+  // console.log('104',loadcomments)
   return (
     <WidgetWrapper m="2rem 0">
       <Friend
