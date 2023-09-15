@@ -112,7 +112,7 @@ export const getComments = async (req, res) => {
       return res.status(404).json({ error: 'Post not found' });
     }
     const comments = post.comments;
-    console.log('115', comments);
+    //console.log('115', comments);
     return res.status(200).json({ comments });
   } catch (err) {
     console.error(err);
