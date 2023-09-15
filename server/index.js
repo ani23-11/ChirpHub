@@ -54,16 +54,27 @@ app.use("/posts", postRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;
+
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+    app.listen(PORT, () => {
+      console.log(`Server Port: ${PORT}`);
+    });
 
     /* ADD DATA ONE TIME */
     // User.insertMany(users);
     // Post.insertMany(posts);
   })
-  .catch((error) => console.log(`${error} did not connect`));
+  .catch((error) => {
+    console.error(`${error} did not connect`);
+  });
+
+// Add an error handler for unhandled promise rejections
+process.on('unhandledRejection', (error) => {
+  console.error('Unhandled Promise Rejection:', error);
+});
+
